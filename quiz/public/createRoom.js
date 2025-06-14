@@ -37,7 +37,9 @@ socket.on("salaCriada", ({ codigo }) => {
   codigoSala = codigo;
   localStorage.setItem("codigoSalaAdmin", codigoSala);
 
-  document.getElementById("codigoSala").textContent = `Código da sala: ${codigoSala}`;
+  document.getElementById(
+    "codigoSala"
+  ).textContent = `Código da sala: ${codigoSala}`;
   document.getElementById("painelAdmin").style.display = "block";
 });
 
@@ -64,8 +66,8 @@ socket.on("pontuacaoAtualizada", ({ pontuacao, jogadores }) => {
   ul.innerHTML = "";
 
   jogadores
-    .filter(jog => !jog.isAdmin)
-    .forEach(jog => {
+    .filter((jog) => !jog.isAdmin)
+    .forEach((jog) => {
       const li = document.createElement("li");
       li.innerHTML = `${jog.apelido} - ${pontuacao[jog.playerId] || 0} pts 
         <button onclick="expulsar('${jog.playerId}')">Expulsar</button>`;

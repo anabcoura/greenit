@@ -69,8 +69,7 @@ io.on("connection", (socket) => {
     socket.emit("salaEntrou"); 
     console.log(`Jogador ${apelido} entrou na sala ${codigo} com sucesso!`);
 
-    io.to(codigo).emit("jogadoresAtualizados", getInfoJogadores(sala)); // Atualiza lista
-
+    io.to(codigo).emit("jogadoresAtualizados", salas[codigo].jogadores);
     socket.emit("entrarSalaEspera", codigo); 
 });
 

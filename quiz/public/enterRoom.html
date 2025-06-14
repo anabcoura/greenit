@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Entrar na sala</title>
     <link rel="stylesheet" href="enterRoom.css" />
+    <script defer src="enterRoom.js"></script>
 </head>
 
 <header class="main-header">
@@ -75,11 +76,11 @@
 </div>
 
     <div id="codigoContainer">
-      <label for="codigo"></label>
+      <label for="codigoSala"></label>
       <input class="flip-card__input-front" id="codigo" maxlength="4" placeholder="O Código da Sala!">
     </div><br>
 
-    <button class="entry-button entry-button--gooey" id="entrar">Entrar<div class="entry-button__blobs">
+    <button class="entry-button entry-button--gooey" id="btnEntrarSala">Entrar<div class="entry-button__blobs">
   <div></div>
   <div></div>
   <div></div>
@@ -117,7 +118,7 @@
 </div>
                                 <div class="flip-card__back">
                                     <div class="title">Ou crie sua própria sala!</div>
-                                        <button class="flip-card__btn">Confirm!</button>
+                                        <button class="flip-card__btn" id="btnCriarSala">Confirm!</button>
                                     </form>
                                 </div>
                             </div>
