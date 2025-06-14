@@ -1,13 +1,13 @@
 const socket = io();
 
 const apelido = localStorage.getItem("apelido");
-const avatar = localStorage.getItem("avatar") || "img/avatars/dog.png";
+const avatar = localStorage.getItem("avatar");
 const codigoSala = localStorage.getItem("codigoSalaJogador");
 const playerId = localStorage.getItem("playerId");
 
 if (!apelido || !codigoSala || !playerId) {
-  alert("Dados do jogador ausentes. Redirecionando...");
-  window.location.href = "enterRoom.html";
+  alert("Informações incompletas. Redirecionando...");
+  window.location.href = "/enterRoom.html";
 }
 
 socket.emit("entrarSala", { codigo: codigoSala, apelido, avatar, playerId });
@@ -30,8 +30,13 @@ socket.on("novaPergunta", ({ pergunta, opcoes, tempo }) => {
         resposta: index
       });
 
-      // Desativar as opções após resposta
-      document.querySelectorAll(".opcao").forEach(el => el.style.pointerEvents = "none");
+      // Desativar todas as opções após a resposta
+      document.querySelectorAll(".opcao").forEach((el) => {
+        el.classList.add("respondido");
+        el.style.pointerEvents = "none";
+      });
+
+      li.classList.add("selecionada");
     };
 
     ul.appendChild(li);
@@ -41,15 +46,15 @@ socket.on("novaPergunta", ({ pergunta, opcoes, tempo }) => {
 });
 
 socket.on("fimDoQuiz", () => {
-  alert("O quiz terminou! Obrigado por jogar 🎉");
+  alert("O quiz chegou ao fim! Obrigado por participar 💚");
   window.location.href = "/";
 });
 
 function iniciarCronometro(segundos) {
   let tempoRestante = segundos;
   const cronometroEl = document.getElementById("cronometro");
-
   cronometroEl.textContent = tempoRestante;
+
   const intervalo = setInterval(() => {
     tempoRestante--;
     cronometroEl.textContent = tempoRestante;

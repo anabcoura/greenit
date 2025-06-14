@@ -4,6 +4,8 @@ const { Server } = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
+const fs = require("fs");
+const perguntas = JSON.parse(fs.readFileSync("perguntas.json", "utf-8"));
 
 const path = require("path");
 const PORT = process.env.PORT || 3000;
@@ -30,7 +32,7 @@ io.on("connection", (socket) => {
       perguntas: [],
       emAndamento: false,
       adminId,
-      pontuacao: {}
+      pontuacao: {},
     };
 
     socket.join(codigo);
@@ -45,7 +47,7 @@ io.on("connection", (socket) => {
     if (!sala) return;
 
     // Evita duplicações
-    const jaExiste = sala.jogadores.some(j => j.playerId === playerId);
+    const jaExiste = sala.jogadores.some((j) => j.playerId === playerId);
     if (!jaExiste) {
       const jogador = { playerId, apelido, avatar, isAdmin: false };
       sala.jogadores.push(jogador);
@@ -80,16 +82,17 @@ io.on("connection", (socket) => {
   // Jogador responde
   socket.on("responder", ({ codigo, playerId, resposta }) => {
     const sala = salas[codigo];
-    if (!sala || !sala.emAndamento) return;
+    if (!sala || !sala.perguntaAtual) return;
 
-    // Aqui você pode comparar a resposta com a correta
-    // e atribuir pontos se necessário (exemplo fictício):
-    sala.pontuacao[playerId] = (sala.pontuacao[playerId] || 0) + 10;
+    const correta = sala.perguntaAtual.correta;
 
-    // Atualiza pontuação para admin
+    if (resposta === correta) {
+      sala.pontuacao[playerId] = (sala.pontuacao[playerId] || 0) + 10;
+    }
+
     io.to(codigo).emit("pontuacaoAtualizada", {
       pontuacao: sala.pontuacao,
-      jogadores: sala.jogadores
+      jogadores: sala.jogadores,
     });
   });
 
@@ -104,7 +107,7 @@ io.on("connection", (socket) => {
     const sala = salas[codigo];
     if (!sala) return;
 
-    sala.jogadores = sala.jogadores.filter(j => j.playerId !== playerId);
+    sala.jogadores = sala.jogadores.filter((j) => j.playerId !== playerId);
     delete sala.pontuacao[playerId];
 
     io.to(codigo).emit("jogadoresAtualizados", sala.jogadores);
@@ -128,15 +131,29 @@ function gerarCodigoUnico() {
 
 // Enviar nova pergunta fictícia (substitua por lógica real se quiser)
 function enviarNovaPergunta(codigo) {
-  const pergunta = {
-    pergunta: "Qual dessas é uma prática sustentável?",
-    opcoes: ["Desperdiçar água", "Reciclar lixo", "Poluir rios", "Queimar florestas"]
-  };
+  const sala = salas[codigo];
+  if (!sala) return;
 
-  io.to(codigo).emit("novaPergunta", { ...pergunta, tempo: salas[codigo]?.tempo || 30 });
+  // Seleciona uma pergunta aleatória
+  const perguntaAleatoria =
+    perguntas[Math.floor(Math.random() * perguntas.length)];
+
+  // Armazena a pergunta atual na sala
+  sala.perguntaAtual = perguntaAleatoria;
+
+  io.to(codigo).emit("novaPergunta", {
+    pergunta: perguntaAleatoria.pergunta,
+    opcoes: perguntaAleatoria.opcoes,
+    tempo: sala.tempo || 30,
+  });
 }
 
 // Iniciar servidor
 server.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "enterRoom.html"));
+});
+
