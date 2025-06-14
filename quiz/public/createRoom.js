@@ -7,45 +7,62 @@ if (!adminId) {
   localStorage.setItem("adminId", adminId);
 }
 
-const tema = localStorage.getItem("tema");
-const dificuldade = localStorage.getItem("dificuldade");
-const tempo = parseInt(localStorage.getItem("tempo"));
+document.addEventListener("DOMContentLoaded", () => {
+  const btnCriar = document.getElementById("btnConfirmarCriacao");
+  const btnIniciar = document.getElementById("iniciar");
+  const btnPular = document.getElementById("pular");
+  const configuracaoSala = document.getElementById("configuracaoSala");
+  const painelAdmin = document.getElementById("painelAdmin");
 
-if (!tema || !dificuldade || !tempo) {
-  alert("Informações de criação da sala não encontradas.");
-  window.location.href = "enterRoom.html";
-} else {
-  socket.emit("criarSala", { tema, dificuldade, tempo, adminId });
-}
+  btnCriar.addEventListener("click", (e) => {
+    e.preventDefault();
 
-document.getElementById("iniciar").onclick = () => {
-  socket.emit("iniciarQuiz", codigoSala);
-};
+    const tema = document.getElementById("tema").value;
+    const dificuldade = document.getElementById("dificuldade").value;
+    const tempo = parseInt(document.getElementById("tempo").value, 10);
 
-document.getElementById("pular").onclick = () => {
-  socket.emit("pularPergunta", codigoSala);
-};
+    if (!tema || !dificuldade || isNaN(tempo) || tempo <= 0) {
+      alert("Preencha todos os campos corretamente.");
+      return;
+    }
 
-document.getElementById("finalizarPartida").onclick = () => {
-  const confirmar = confirm("Tem certeza que deseja finalizar a partida?");
-  if (confirmar) {
-    socket.emit("finalizarPartida", codigoSala);
-  }
-};
+    socket.emit("criarSala", { tema, dificuldade, tempo, adminId });
+  });
+
+  btnIniciar.addEventListener("click", () => {
+    if (codigoSala) {
+      socket.emit("iniciarQuiz", codigoSala);
+    }
+  });
+
+  btnPular.addEventListener("click", () => {
+    if (codigoSala) {
+      socket.emit("pularPergunta", codigoSala);
+    }
+  });
+
+  document.getElementById("finalizarPartida").addEventListener("click", () => {
+    if (!codigoSala) return;
+
+    const confirmar = confirm("Tem certeza que deseja finalizar a partida?");
+    if (confirmar) {
+      socket.emit("finalizarPartida", codigoSala);
+    }
+  });
+});
 
 socket.on("salaCriada", ({ codigo }) => {
   codigoSala = codigo;
   localStorage.setItem("codigoSalaAdmin", codigoSala);
 
-  document.getElementById(
-    "codigoSala"
-  ).textContent = `Código da sala: ${codigoSala}`;
-  document.getElementById("painelAdmin").style.display = "block";
-});
+  document.getElementById("codigoSala").textContent = `Código da sala: ${codigoSala}`;
 
-socket.on("partidaFinalizada", () => {
-  alert("Você finalizou a partida. A sala foi encerrada.");
-  location.href = "/";
+  const configuracaoSala = document.getElementById("configuracaoSala");
+  const painelAdmin = document.getElementById("painelAdmin");
+  if (configuracaoSala) configuracaoSala.style.display = "none";
+  if (painelAdmin) painelAdmin.style.display = "block";
+
+  document.getElementById("pular").style.display = "none"; // Só mostra ao iniciar o quiz
 });
 
 socket.on("jogadoresAtualizados", (jogadores) => {
@@ -54,7 +71,7 @@ socket.on("jogadoresAtualizados", (jogadores) => {
 
   jogadores.forEach((j) => {
     const li = document.createElement("li");
-    li.innerHTML = `<img src="${j.avatar}" width="30"> ${j.apelido}`;
+    li.innerHTML = `<img src="${j.avatar}" width="30" style="vertical-align: middle; margin-right: 8px;" /> ${j.apelido}`;
     ul.appendChild(li);
   });
 
@@ -66,18 +83,14 @@ socket.on("pontuacaoAtualizada", ({ pontuacao, jogadores }) => {
   ul.innerHTML = "";
 
   jogadores
-    .filter((jog) => !jog.isAdmin)
-    .forEach((jog) => {
+    .filter(j => !j.isAdmin)
+    .forEach(j => {
       const li = document.createElement("li");
-      li.innerHTML = `${jog.apelido} - ${pontuacao[jog.playerId] || 0} pts 
-        <button onclick="expulsar('${jog.playerId}')">Expulsar</button>`;
+      li.innerHTML = `${j.apelido} - ${pontuacao[j.playerId] || 0} pts 
+        <button onclick="expulsar('${j.playerId}')">Expulsar</button>`;
       ul.appendChild(li);
     });
 });
-
-function expulsar(playerId) {
-  socket.emit("expulsarJogador", { codigo: codigoSala, playerId });
-}
 
 socket.on("novaPergunta", () => {
   document.getElementById("pular").style.display = "inline";
@@ -86,3 +99,14 @@ socket.on("novaPergunta", () => {
 socket.on("fimDoQuiz", () => {
   document.getElementById("pular").style.display = "none";
 });
+
+socket.on("partidaFinalizada", () => {
+  alert("Você finalizou a partida. A sala foi encerrada.");
+  location.href = "/";
+});
+
+function expulsar(playerId) {
+  if (codigoSala) {
+    socket.emit("expulsarJogador", { codigo: codigoSala, playerId });
+  }
+}

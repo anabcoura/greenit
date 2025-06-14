@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz em andamento</title>
+  <link rel="stylesheet" href="quiz.css" />
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="quiz.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 id="perguntaTitulo">Carregando pergunta...</h1>
+
+    <ul id="opcoes" class="lista-opcoes">
+      <!-- Opções serão inseridas aqui via JS -->
+    </ul>
+
+    <div class="cronometro-box">
+      Tempo restante: <span id="cronometro">--</span>s
+    </div>
+  </div>
+</body>
+</html>

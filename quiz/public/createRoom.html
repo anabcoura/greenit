@@ -2,53 +2,53 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <title>Administração da Sala</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green It - Criar Sala</title>
+    <link rel="stylesheet" href="createRoom.css" />
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="createRoom.js"></script>
   </head>
   <body>
-    <h1>Criar Sala</h1>
+    <div class="container">
+      <div id="configuracaoSala">
+        <h1>Configurar Nova Sala</h1>
 
-    <div id="formCriacao">
-      <label
-        >Tema:
+        <label for="tema">Tema:</label>
         <select id="tema">
+          <option value="">Selecione</option>
           <option value="tecnologia-sustentavel">Tecnologia Sustentável</option>
           <option value="reciclagem">Reciclagem</option>
-        </select> </label
-      ><br /><br />
+        </select>
 
-      <label
-        >Dificuldade:
+        <label for="dificuldade">Dificuldade:</label>
         <select id="dificuldade">
+          <option value="">Selecione</option>
           <option value="facil">Fácil</option>
           <option value="medio">Médio</option>
           <option value="dificil">Difícil</option>
-        </select> </label
-      ><br /><br />
+        </select>
 
-      <label
-        >Tempo por pergunta (segundos):
-        <input type="number" id="tempo" value="30" /> </label
-      ><br /><br />
+        <label for="tempo">Tempo por pergunta (em segundos):</label>
+        <input type="number" id="tempo" min="10" max="300" value="30" />
 
-      <button id="criar">Criar Sala</button>
+        <button id="btnConfirmarCriacao">Criar Sala</button>
+      </div>
+      <!-- Painel do administrador -->
+      <div id="painelAdmin" style="display: none; margin-top: 40px">
+        <h2 id="codigoSala"></h2>
+
+        <div>
+          <button id="iniciar">Iniciar Quiz</button>
+          <button id="pular" style="display: none">Pular Pergunta</button>
+          <button id="finalizarPartida">Finalizar Partida</button>
+        </div>
+
+        <h3>Jogadores conectados:</h3>
+        <ul id="lista-jogadores"></ul>
+
+        <h3>Gerenciar Jogadores</h3>
+        <ul id="listaGerenciarJogadores"></ul>
+      </div>
     </div>
-
-    <div id="controle" style="display: none">
-      <h2 id="codigoSala"></h2>
-      <button id="iniciar">Iniciar Quiz</button>
-      <button id="pular" style="display: none">Pular Pergunta</button>
-      <button id="finalizarPartida">Finalizar Partida</button>
-
-      <h3>Jogadores na Sala</h3>
-      <ul id="lista-jogadores"></ul>
-    </div>
-
-    <div id="painelAdmin" style="display: none">
-      <h3>Gerenciamento da Partida</h3>
-      <ul id="listaGerenciarJogadores"></ul>
-    </div>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="admin.js"></script>
   </body>
 </html>
