@@ -1,0 +1,39 @@
+{
+  "markers": [
+    {
+      "id": 1,
+      "lat": -19.883447,
+      "lng": -43.949681,
+      "name": "Ecoponto Bairro das Indústrias",
+      "info": "Av. Tereza Cristina, 3000 - Aberto das 8h às 17h"
+    },
+    {
+      "id": 2,
+      "lat": -19.915115,
+      "lng": -43.932718,
+      "name": "Ecoponto Barro Preto",
+      "info": "Rua dos Guajajaras, 1268 - Aberto das 8h às 17h"
+    },
+    {
+      "id": 3,
+      "lat": -19.902719,
+      "lng": -43.976458,
+      "name": "Ecoponto Califórnia",
+      "info": "Av. Dom João VI, 351 - Aberto das 8h às 17h"
+    },
+    {
+      "id": 4,
+      "lat": -19.891856,
+      "lng": -43.927238,
+      "name": "Ecoponto São Cristóvão",
+      "info": "Rua Deputado Sebastião Nascimento, 122 - Aberto das 8h às 17h"
+    },
+    {
+      "id": 5,
+      "lat": -19.916183,
+      "lng": -43.936664,
+      "name": "Ecoponto Floresta",
+      "info": "Rua Jacuí, 1300 - Aberto das 8h às 17h"
+    }
+  ]
+}
