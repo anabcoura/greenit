@@ -1,0 +1,633 @@
+/* ===== VARIAVEIS GLOBAIS ===== */
+:root {
+  /* Cores */
+  --primary-color: #2ecc71; /* Verde principal */
+  --primary-dark: #27ae60; /* Verde mais escuro */
+  --secondary-color: #3498db; /* Azul para destaques */
+  --text-color: #2c3e50; /* Cor do texto principal */
+  --light-bg: #f8f9fa; /* Cor de fundo clara */
+  --white: #ffffff; /* Branco puro */
+
+  /* Efeitos */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra padrao */
+  --transition: all 0.3s ease; /* Transicao suave */
+}
+
+/* ===== RESET E ESTILOS BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Fontes*/
+@font-face {
+  font-family: "BeVietnam";
+  src: url(../fonts/Be_Vietnam_Pro/BeVietnamPro-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(../fonts/Inter/static/Inter_18pt-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "BeVietReg";
+  src: url(../fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf);
+}
+
+body {
+  width: 100%;
+  font-family: "Inter";
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+/* ===== HEADER E NAVEGAÇÃO ===== */
+.main-header {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.main-nav {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  width: 95%;
+  max-width: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border: 2px solid #262626;
+  border-radius: 16px;
+  background-color: var(--white);
+  margin: 0 10px;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Botão logo */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.greenit-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #0e7d70;
+  border-radius: 12px;
+  padding: 0;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  position: relative;
+  box-shadow: 0px 4px 0px #0e7d70;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  background-color: #e7e7e7;
+}
+
+.greenit-button::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -150%;
+  width: 300%;
+  height: 300%;
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+  background: linear-gradient(to right, #81d916, #3ab22c);
+}
+
+.greenit-button:hover::before {
+  transform: translateX(-50%) scale(1);
+}
+
+.greenit-button:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.greenit-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.greenit-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+}
+
+.greenit-button:hover .greenit-logo {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.button-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  z-index: 2;
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+}
+
+.button-text span:first-child {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.button-text span:last-child {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.greenit-button:hover .button-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Links de navegação */
+.nav-link {
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border: 3px solid #0e7d70;
+  border-radius: 0.9em;
+  width: 200px;
+  height: 45px;
+  transition: all 0.3s ease;
+  background-color: #4caf50;
+  color: white;
+  display: inline-block;
+  box-shadow: 0 4px 0 #0e7d70;
+  text-align: center;
+}
+
+.nav-link:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 0px 0 #0e7d70;
+}
+
+.nav-link-active {
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border: 3px solid #4b4b4b;
+  border-radius: 0.9rem;
+  width: 200px;
+  height: 45px;
+  transition: all 0.3s ease;
+  background-color: #e7e7e7;
+  color: black;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Botão de login */
+.btn-login {
+  background: linear-gradient(to right, #81d916, #3ab22c);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: white;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 14px;
+  border-radius: 0.9em;
+  border: 3px solid #0e7d70;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 0 #0e7d70;
+  overflow: hidden;
+  position: relative;
+  height: 45px;
+  width: 200px;
+  padding-right: 3.3em;
+  cursor: pointer;
+}
+
+.btn-login .icon {
+  background: #f6f6f6;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 40px;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #059a5a;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.btn-login:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.btn-login .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #0e7d70;
+}
+
+.btn-login .icon svg {
+  transform: translateX(0.1em);
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.borderscreen {
+  display: flex;
+  width: 95%;
+  max-width: 1400px;
+  height: auto;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  border: 2px solid #262626;
+  background: var(--light-bg);
+  margin: 20px auto;
+}
+
+.master {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #3ab22c 0%, #3ab22c 100%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ===== SEÇÃO DE PONTOS DE DESCARTE ===== */
+/* SEÇÃO DE PONTOS DE DESCARTE - ATUALIZADA */
+.points-section {
+  display: flex;
+  flex-direction: column-reverse; /* Mapa fica embaixo em mobile */
+  width: 100%;
+  height: auto;
+  gap: 20px;
+  padding: 15px;
+}
+
+.map-container {
+  flex: 1;
+  height: 50vh; /* Usando viewport height para melhor responsividade */
+  min-height: 300px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 2px solid #262626;
+  position: relative;
+  background: #f0f0f0; /* Cor de fundo enquanto carrega */
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Ajustes para telas maiores */
+@media (min-width: 992px) {
+  .points-section {
+    flex-direction: row; /* Volta para linha em desktop */
+  }
+  
+  .map-container {
+    height: 70vh;
+  }
+}
+
+/* Correção para evitar problemas de renderização em mobile */
+.leaflet-container {
+  background: #fff !important;
+}
+
+/* Ajuste para controles do mapa em mobile */
+.leaflet-control {
+  z-index: 1000 !important;
+}
+
+/* Garantir que o mapa não tenha overflow escondido */
+.master {
+  overflow: visible !important;
+}
+
+.points-list-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  order: 1;
+}
+
+.points-list {
+  background-color: var(--white);
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 2px solid #262626;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.search-bar, .search-filter {
+  flex: 1;
+}
+
+.search-bar input, .search-filter select {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.search-bar input:focus, .search-filter select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+#points {
+  list-style-type: none;
+  padding: 0;
+}
+
+.point-item {
+  background-color: var(--light-bg);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.point-item:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.point-item.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-dark);
+}
+
+.point-item.active strong {
+  color: white;
+}
+
+.point-item strong {
+  color: var(--primary-dark);
+  display: block;
+  margin-bottom: 5px;
+  transition: var(--transition);
+}
+
+/* Popup do mapa */
+.leaflet-popup-content {
+  font-family: "Inter";
+  padding: 10px;
+  min-width: 200px;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+}
+
+/* ===== RODAPÉ ===== */
+.bluecolor {
+  background: var(--white);
+  width: 100%;
+  height: 60%;
+  margin-top: -100px;
+}
+
+.green-footer {
+  margin-top: 6%;
+  background-color: #3ab22c;
+  color: white;
+  font-family: "Inter";
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.footer-cta {
+  text-align: center;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-cta h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-col h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #81c784;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-bottom: 0.8rem;
+  color: #c8e6c9;
+  transition: all 0.3s ease;
+}
+
+.footer-col li:hover {
+  color: white;
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 2rem 0 0;
+  margin-top: 2rem;
+  border-top: 1px solid #81c784;
+}
+
+.footer-bottom h3 {
+  font-style: italic;
+  font-size: 1.8rem;
+  color: white;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (min-width: 768px) {
+  .nav-list {
+    flex-wrap: nowrap;
+    gap: 25px;
+    padding: 10px 20px;
+  }
+  
+  .search-container {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 992px) {
+  .points-section {
+    flex-direction: row;
+  }
+  
+  .map-container {
+    height: 600px;
+  }
+.map-container {
+    width: 600px;
+    z-index: 1000;
+  }
+  
+  .points-list {
+    max-height: 600px;
+  }
+  
+  .nav-list {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .map-container {
+    height: 700px;
+  }
+  .map-container {
+    width: 600px;
+  }
+  
+  .points-list {
+    max-height: 700px;
+  }
+  
+  .nav-list {
+    width: 80%;
+  }
+}
+
+/* Loading do mapa */
+.map-loading {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+}
+
+.spinner {
+  border: 5px solid rgba(46, 204, 113, 0.2);
+  border-radius: 50%;
+  border-top: 5px solid var(--primary-color);
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+

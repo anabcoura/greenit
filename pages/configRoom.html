@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="configRoom.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Criar Sala</title>
+  </head>
+  <body>
+    <div class="container">
+      <button class="mobile-btn">EXIBIR JOGADORES</button>
+      <div class="sidebar">
+        <h2>JOGADORES 6/10</h2>
+        <select class="dropdown">
+          <option>10 JOGADORES</option>
+        </select>
+
+        <div class="player">
+          <img src="#" alt="" /><span>JOGADOR 1</span
+          ><span class="coroa"><img src="../img/room/crown.svg" alt="" /></span>
+        </div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 2</span></div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 3</span></div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 4</span></div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 5</span></div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 6</span></div>
+      </div>
+
+      <div class="sidebar" id="sidebar-mobile">
+        <h2>JOGADORES 6/10</h2>
+        <select class="dropdown">
+          <option>10 JOGADORES</option>
+        </select>
+
+        <div class="player">
+          <img src="#" alt="" /><span>JOGADOR 1</span
+          ><span class="coroa"><img src="../img/room/crown.svg" alt="" /></span>
+        </div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 2</span></div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 3</span></div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 4</span></div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 5</span></div>
+        <div class="player"><img src="#" alt="" /><span>JOGADOR 6</span></div>
+      </div>
+
+      <div class="main">
+        <div class="tabs">
+          <div class="tab temas2">
+            <a href="/create_room.html"
+              ><button id="btn_manual">TEMAS</button></a
+            >
+          </div>
+          <div class="tab manual2">
+            <a href="/config_room.html"
+              ><button id="btn_manual">MANUAL</button></a
+            >
+          </div>
+        </div>
+        <div class="manual-content">
+          <h3>Tempo</h3>
+          <div class="tempo-row">
+            <div class="tempo-text">
+              <p
+                >Configure a quantidade de segundos os jogadores terão para
+                responder as perguntas</p
+              >
+            </div>
+            <div class="tempo-select">
+              <select id="tempo">
+                <option>NORMAL</option>
+              </select>
+            </div>
+          </div>
+          <h3>Perguntas</h3>
+          <div class="perguntas-row">
+            <div class="perguntas-text">
+              <p
+                >Configure a quantidade de perguntas que terão na partida</p
+              >
+            </div>
+            <div class="perguntas-select">
+              <select id="perguntas">
+                <option>10 PERGUNTAS</option>
+              </select>
+            </div>
+          </div>
+          <h3>Pontuação</h3>
+          <p
+            >Configure a quantidade de pontos e de perguntas que cada
+            dificuldade de pergunta possuirá</p
+          >
+          <div class="perguntas-dificeis-row">
+            <div class="perguntas-dificeis-text">
+              <small>Perguntas difíceis</small>
+            </div>
+            <div class="perguntas-dificeis-select">
+              <select id="perguntas">
+                <option>3 PERGUNTAS</option>
+              </select>
+              <select id="pontos">
+                <option>5 PONTOS</option>
+              </select>
+            </div>
+          </div>
+          <div class="perguntas-medias-row">
+            <div class="perguntas-medias-text">
+              <small>Perguntas médias</small>
+            </div>
+            <div class="perguntas-medias-select">
+              <select id="perguntas">
+                <option>3 PERGUNTAS</option>
+              </select>
+              <select id="pontos">
+                <option>3 PONTOS</option>
+              </select>
+            </div>
+          </div>
+          <div class="perguntas-faceis-row">
+            <div class="perguntas-faceis-text">
+              <small>Perguntas fáceis</small>
+            </div>
+            <div class="perguntas-faceis-select">
+              <select id="perguntas">
+                <option>4 PERGUNTAS</option>
+              </select>
+              <select id="pontos">
+                <option>1 PONTOS</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="convide">CONVIDAR</button>
+          <a href="manageRoom.html"><button class="iniciar">INICIAR</button></a>
+          <button
+            class="voltar"
+            onclick="window.location.href='createRoom.html'"
+          >
+            VOLTAR
+          </button>
+        </div>
+      </div>
+    </div>
+<<<<<<< HEAD
+    <script src="configRoom.js"></script>
+=======
+    <script src="../scripts/configRoom.js"></script>
+>>>>>>> 6a35c53df8811ee30b78a05cef528908ea41852c
+  </body>
+</html>

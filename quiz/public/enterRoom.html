@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar na sala</title>
+    <link rel="stylesheet" href="enterRoom.css" />
+</head>
+
+<header class="main-header">
+  <div class="container">
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <div class="button-container">
+  <button class="greenit-button">
+    <div class="greenit-logo">
+      <img src="../src/img/index/greeniticon.svg" alt="Logo Green IT" class="greenit-icon" />
+    </div>
+    <div class="button-text">
+      <span>GREEN</span>
+      <span>IT!</span>
+    </div>
+  </button>
+</div>
+        <li><a href="#" class="nav-link-active">Página Inicial</a></li>
+        <li><a href="./pages/articles.html" class="nav-link">Artigos</a></li>
+        <li><a href="./pages/disposalPoints.html" class="nav-link">Pontos de Descarte</a></li>
+        <li><a href="../src/pages/contact.html" class="nav-link">Contato</a></li>
+        <a href="./pages/enterRoom.html">
+  <button class="btn-login">
+    Vamos Começar!
+    <div class="icon">
+      <svg height="24" width="24" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+          fill="currentColor"></path>
+      </svg>
+    </div>
+  </button>
+</a>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<body>
+    <div class="container">
+        <div class="content-box">
+            <!-- Container 1: Avatar + apelido -->
+            <div class="form-avatar">
+                <div class="wrapper">
+                    <div class="card-switch">
+                        <label class="switch">
+                            <input type="checkbox" class="toggle">
+                            <span class="slider"></span>
+                            <span class="card-side"></span>
+                            <div class="flip-card__inner">
+                                <div class="flip-card__front">
+    <div id="entrada">
+    <div class="title">Selecione um apelido e um avatar!</div>
+
+    <label for="apelido"></label>
+    <input class="flip-card__input-front" id="apelido" maxlength="20" placeholder="Seu Apelido!"><br><br>
+
+    <div id="avatarControls">
+    <button id="prevAvatar">&lt;</button>
+    
+    <div id="avatarWrapper">
+        <img id="avatarPreview" src="img/avatars/avatar1.svg" alt="Avatar">
+    </div>
+    
+    <button id="nextAvatar">&gt;</button>
+</div>
+
+    <div id="codigoContainer">
+      <label for="codigo"></label>
+      <input class="flip-card__input-front" id="codigo" maxlength="4" placeholder="O Código da Sala!">
+    </div><br>
+
+    <button class="entry-button entry-button--gooey" id="entrar">Entrar<div class="entry-button__blobs">
+  <div></div>
+  <div></div>
+  <div></div>
+  </div>
+</button>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
+      <feBlend in="SourceGraphic" in2="goo"></feBlend>
+    </filter>
+  </defs>
+</svg>
+  </div>
+
+  <div id="espera" style="display:none;">
+    <h3>Aguardando o início do quiz...</h3>
+    <ul id="jogadores"></ul>
+  </div>
+
+  <div id="pergunta" style="display:none;"></div>
+
+  <div id="podio" style="display:none; margin-top: 40px;">
+    <h2>Ranking Final</h2>
+    <div id="rankingContainer"
+         style="display: flex; gap: 20px; justify-content: center; align-items: flex-end; height: 200px; margin-bottom: 30px;">
+    </div>
+    <h3 style="text-align:center;">Top 10</h3>
+    <ol id="listaTop10" style="max-width: 400px; margin: auto; text-align: left;"></ol>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="enterRoom.js"></script>
+</div>
+                                <div class="flip-card__back">
+                                    <div class="title">Ou crie sua própria sala!</div>
+                                        <button class="flip-card__btn">Confirm!</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna da direita: tutorial acima + ações abaixo -->
+            <div class="right-column">
+                <!-- Container 2: Tutorial -->
+                <div class="tutorial-box">
+                    <h2>Como jogar?</h2>
+                    <div class="tutorial1">
+                        <h3 class="tutoduvida">Quero entrar em uma sala criada por outra pessoa.</h3>
+                        <p class="tutoresp"> ● Basta digitar ou colar o código referente à sala, selecionar seu avatar e
+                            apelido e aproveitar!</p>
+                    </div>
+                    <div class="tutorial2">
+                        <h3 class="tutoduvida">Quero criar uma sala para meus alunos ou filhos.</h3>
+                        <p class="tutoresp">● Basta entrar na aba de criação de salas, selecionar um tema de sua
+                            escolha, configurar sua sala, enviar o código aos alunos e dar início à atividade!</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

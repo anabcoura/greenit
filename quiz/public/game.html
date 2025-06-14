@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kahoot Clone</title>
+  </head>
+  <body>
+    <h1>Quiz Multiplayer</h1>
+
+    <label for="tema">Escolha o tema:</label>
+    <select id="tema">
+      <option value="historia">História</option>
+      <option value="matematica">Matemática</option>
+      <option value="filmes">Filmes</option>
+    </select>
+    <br /><br />
+
+    <button id="criar">Criar Sala</button>
+    <button id="entrar">Entrar na Sala</button>
+    <button id="iniciar">Iniciar Quiz</button>
+
+    <div id="admin" style="display: none">
+      <h3>Controles do Criador da Sala</h3>
+      <button id="pular">Pular Pergunta</button>
+    </div>
+
+    <div id="jogadores">
+      <h3>Jogadores na sala:</h3>
+      <ul id="lista-jogadores"></ul>
+    </div>
+
+    <div id="placar">
+      <h3>Placar</h3>
+      <ul id="lista-placar"></ul>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

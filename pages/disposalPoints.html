@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pontos de Descarte - GreenIT</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="disposalPoints.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <div class="button-container">
+              <button class="greenit-button">
+                <div class="greenit-logo">
+                  <img
+                    src="../img/index/greeniticon.svg"
+                    alt="Logo Green IT"
+                    class="greenit-icon"
+                  />
+                </div>
+                <div class="button-text">
+                  <span>GREEN</span>
+                  <span>IT!</span>
+                </div>
+              </button>
+            </div>
+            <li>
+              <a href="../index.html" class="nav-link">Página Inicial</a>
+            </li>
+            <li>
+              <a href="../pages/articles.html" class="nav-link">Artigos</a>
+            </li>
+            <li>
+              <a href="../pages/disposalPoints.html" class="nav-link-active"
+                >Pontos de Descarte</a
+              >
+            </li>
+            <li>
+              <a href="../pages/contact.html" class="nav-link">Contato</a>
+            </li>
+            <a href="../pages/enterRoom.html">
+              <button class="btn-login">
+                Vamos Começar!
+                <div class="icon">
+                  <svg height="24" width="24" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+            </a>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <h1><a href=""></a></h1>
+    <h1><a href=""></a></h1>
+    <h3><a href=""></a></h3>
+
+
+<div class="borderscreen">
+  <div class="master">
+    <section class="points-section">
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+      
+      <div class="points-list-container">
+        <div class="points-list">
+          <h2>Pontos de Descarte</h2>
+          <div class="search-container">
+            <div class="search-bar">
+              <input type="text" id="search" placeholder="Buscar local...">
+            </div>
+            <div class="search-filter">
+              <select id="sort">
+                <option value="distance">Ordenar por Distância</option>
+                <option value="hours">Ordenar por Horário</option>
+              </select>
+            </div>
+          </div>
+          <ul id="points">
+            <li class="point-item feature-point">
+              <strong>Local 01</strong> <br>
+              15 km - Aberto das 9h às 18h
+            </li>
+            <li class="point-item">
+              <strong>Local 02</strong> <br>
+              23 km - Aberto das 7h às 16h
+            </li>
+            <li class="point-item">
+              <strong>Local 03</strong> <br>
+              6 km - Aberto das 9h às 11h
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+      <footer class="green-footer">
+        <div class="greenfooter">
+          <img src="../img/index/Vector2.svg" alt="" class="bluecolor" />
+        </div>
+        <div class="footer-columns">
+          <div class="footer-col">
+            <h3>Quem somos</h3>
+            <ul>
+              <li>Pesquisa</li>
+              <li>Atividade</li>
+              <li>Guia de Marca</li>
+              <li>Entre em contato</li>
+              <li>PUC MINAS</li>
+              <li>Eficácia</li>
+              <li>Cultura Green IT</li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Ajuda e suporte</h3>
+            <ul>
+              <li>Dúvidas: Green IT</li>
+              <li>Dúvidas: ONG's</li>
+              <li>Status</li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Termos e privacidade</h3>
+            <ul>
+              <li>Normas da comunidade</li>
+              <li>Termos de uso</li>
+              <li>Privacidade</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <h3>Deixe verde!</h3>
+        </div>
+      </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

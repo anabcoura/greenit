@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sala de Espera</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #F2FBE7;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+
+        #listaJogadores {
+            list-style: none;
+            padding: 0;
+        }
+
+        .player {
+            padding: 10px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .admin-controls {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Aguardando Jogadores...</h2>
+        <p>Sala: <span id="nomeSala"></span></p>
+        <ul id="listaJogadores"></ul>
+        <div class="admin-controls">
+            <button id="startQuiz">Iniciar Quiz</button>
+        </div>
+    </div>
+
+    <!-- Scripts no final para garantir que a página carregue antes -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/waitingRoom.js"></script>
+</body>
+</html>

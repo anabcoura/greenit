@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Administração da Sala</title>
+  </head>
+  <body>
+    <h1>Criar Sala</h1>
+
+    <div id="formCriacao">
+      <label
+        >Tema:
+        <select id="tema">
+          <option value="tecnologia-sustentavel">Tecnologia Sustentável</option>
+          <option value="reciclagem">Reciclagem</option>
+        </select> </label
+      ><br /><br />
+
+      <label
+        >Dificuldade:
+        <select id="dificuldade">
+          <option value="facil">Fácil</option>
+          <option value="medio">Médio</option>
+          <option value="dificil">Difícil</option>
+        </select> </label
+      ><br /><br />
+
+      <label
+        >Tempo por pergunta (segundos):
+        <input type="number" id="tempo" value="30" /> </label
+      ><br /><br />
+
+      <button id="criar">Criar Sala</button>
+    </div>
+
+    <div id="controle" style="display: none">
+      <h2 id="codigoSala"></h2>
+      <button id="iniciar">Iniciar Quiz</button>
+      <button id="pular" style="display: none">Pular Pergunta</button>
+
+      <h3>Jogadores na Sala</h3>
+      <ul id="lista-jogadores"></ul>
+    </div>
+
+    <div id="painelAdmin" style="display: none">
+      <h3>Gerenciamento da Partida</h3>
+      <ul id="listaGerenciarJogadores"></ul>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

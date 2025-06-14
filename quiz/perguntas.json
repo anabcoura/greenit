@@ -1,0 +1,53 @@
+{
+  "tecnologia-sustentavel": [
+    {
+      "pergunta": "O que significa tecnologia sustentável?",
+      "opcoes": ["Usar apenas computadores caros", "Utilizar a tecnologia de forma a economizar recursos e proteger o meio ambiente", "Jogar celulares velhos no lixo comum", "Comprar o último modelo de smartphone todos os anos"],
+      "correta": 1,
+      "dificuldade": "facil"
+    },
+    {
+      "pergunta": "Qual dessas ações é mais sustentável?",
+      "opcoes": ["Trocar de celular todos os anos", "Doar ou consertar eletrônicos velhos em vez de jogar fora", "Deixar o computador ligado a noite toda", "Usar apenas dispositivos novos para evitar problemas"],
+      "correta": 1,
+      "dificuldade": "facil"
+    },
+    {
+      "pergunta": "Qual aparelho gasta menos energia?",
+      "opcoes": ["Computador de mesa (desktop) grande", "TV antiga de tubo", "Notebook", "Video game ligado o dia todo"],
+      "correta": 2,
+      "dificuldade": "facil"
+    },
+    {
+      "pergunta": "O que fazer com pilhas e baterias usadas?",
+      "opcoes": ["Jogar no lixo comum", "Guardar em um pote em casa para sempre", "Queimar no quintal", "Levar a pontos de coleta especializados"],
+      "correta": 3,
+      "dificuldade": "facil"
+    },
+    {
+      "pergunta": "Qual hábito NÃO ajuda o planeta?",
+      "opcoes": ["Imprimir todos os e-mails e documentos", "Usar a internet para enviar mensagens em vez de papel", "Configurar o computador para desligar a tela quando não estiver em uso", "Usar tablets para ler livros em vez de papel"],
+      "correta": 0,
+      "dificuldade": "facil"
+    },
+    {
+      "pergunta": "Por que é importante reciclar eletrônicos?",
+      "opcoes": ["Porque eles viram brinquedos novos", "Porque é mais fácil do que consertar", "Porque metais como ouro e cobre podem ser reaproveitados", "Porque ocupam pouco espaço no lixo"],
+      "correta": 2,
+      "dificuldade": "facil"
+    },
+    {
+      "pergunta": "Qual desses é um exemplo de lixo eletrônico?",
+      "opcoes": ["Garrafa pet", "Computador quebrado", "Casca de banana", "Livro velho"],
+      "correta": 1,
+      "dificuldade": "facil"
+    },
+    {
+      "pergunta": "Como empresas podem ser mais sustentáveis com tecnologia?",
+      "opcoes": ["Usando servidores que gastam muita energia", "Trocando todos os equipamentos todo ano", "Virtualizando serviços (usando menos máquinas físicas)", "Imprimindo todos os documentos para arquivo"],
+      "correta": 2,
+      "dificuldade": "facil"
+    }
+  ],
+  "reciclagem": []
+}

@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #6FCC3E;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.08) 25%, rgba(0, 0, 0, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.08) 25%, rgba(0, 0, 0, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08) 76%, transparent 77%, transparent);
+    background-size: 40px 40px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    height: 600px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 16px;
+    border: 4px solid #2B9A66;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.header-bar {
+    width: 120px;
+    height: 40px;
+    background: #33aa33;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    height: 400px;
+    width: 830px;
+    background: #6FCC3E;
+    border-radius: 16px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left-panel {
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    flex: 0.4;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #eee;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.avatar {
+    width: 20px;
+    height: 20px;
+    background: gray;
+    border-radius: 50%;
+}
+
+.rank-blue {
+    background: linear-gradient(to right, #ccc, #33f);
+}
+
+.rank-orange {
+    background: linear-gradient(to right, #ccc, #f90);
+}
+
+.rank-red {
+    background: linear-gradient(to right, #ccc, #f55);
+}
+
+.player-name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.player-rank {
+    font-weight: bold;
+}
+
+.ranking-area {
+    flex: 1;
+    background-color: #F6F6F6;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+}
+
+.ranking-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../img/ranking/pattern2.png') repeat;
+    background-size: 350px auto, cover;
+    background-repeat: repeat;
+    opacity: 4;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 8px;
+}
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.avatar-big {
+    width: 50px;
+    height: 50px;
+    background: gray;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.crown {
+    position: absolute;
+    top: -12px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.column {
+    width: 50px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.first {
+    height: 120px;
+    background: linear-gradient(to top, #0066ff, #3399ff);
+}
+
+.second {
+    height: 80px;
+    background: linear-gradient(to top, #ffaa00, #ffcc33);
+}
+
+.third {
+    height: 60px;
+    background: linear-gradient(to top, #ff3333, #ff6666);
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-finalizar {
+    background: #F12A80;
+}
+
+.btn-recomecar {
+    background: #4caf50;
+}

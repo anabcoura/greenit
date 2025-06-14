@@ -1,0 +1,285 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #59c12d;
+}
+
+h3, p {
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+    background-color: #74CF43;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.btn-voltar {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-box {
+    background: linear-gradient(45deg, #81D916, #5FAD56);
+    border: 4px solid #2B9A66;
+    border-radius: 12px;
+    margin: 40px auto;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+.content-box::before {
+    
+}
+
+
+
+.tutorial-box {
+    display: flex;
+    flex-direction: column; /* organiza itens verticalmente */
+    justify-content: top; /* centraliza na vertical */
+    align-items: center; /* centraliza na horizontal */
+    position: relative;
+    height: 400px; 
+    background: linear-gradient(to bottom, #059A5A 45%, #0E7D70);
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 20px;
+    width: 35%;
+    box-shadow: 0px 4px #17755a;
+    color: white;
+    gap: 25px;
+}
+
+.tutorial-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../img/room/pattern1.png') repeat;
+    background-size: 350px auto, cover;
+    background-repeat: repeat;
+    opacity: 0.150;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 8px;
+}
+
+.tutorial1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    position: relative;
+    gap: 18px;
+}
+
+.tutorial2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    position: relative;
+    gap: 18px;
+}
+
+.tutorial3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    position: relative;
+    gap: 18px;
+}
+
+.tutoduvida {
+    font-size: 17px;
+}
+
+.tutoresp {
+    font-size: 13px;
+}
+
+.form-box {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* organiza itens verticalmente */
+    justify-content: top; /* centraliza na vertical */
+    align-items: center; /* centraliza na horizontal */
+    height: 400px; 
+    background: linear-gradient(to bottom, #059A5A 45%, #0E7D70);
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 20px;
+    width: 50%;
+    box-shadow: 0px 4px #17755a;
+    color: white;
+}
+
+.form-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('imgs/pattern1.png') repeat;
+    background-size: 350px auto, cover;
+    background-repeat: repeat;
+    opacity: 0.150;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 8px;
+}
+
+.avatar-selection {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 25px;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;  
+  height: 150px;
+  background-color: #F6F6F6;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  gap: 3px;
+  box-shadow: 0px 4px #0E7D70;
+}
+
+.avatar-btn {
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    color: lightgray;
+    font-weight: bold;
+}
+
+.avatar-img {
+    width: 80px;
+    height: 80px;
+    background-color: #888888;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.input-group1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    background-color: #F6F6F6;
+    height: 150px;
+    width: 180px;
+    position: relative;
+    box-shadow: 0px 4px #0E7D70;
+}
+
+.input-group1 label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #262626;
+    text-align: center;
+}
+
+.input-group1 input {
+    width: 150px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #262626;
+    box-sizing: border-box;
+}
+
+.entrar-sala {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+}
+
+.input-group2 {
+    position: relative;
+    margin-bottom: 2px;
+}
+
+.input-group2 label {
+    text-align: center;
+    font-size: 13px;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.input-group2 input {
+    width: 200px;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.btn-entrar {
+    position: relative;
+    width: 200px;
+    height: 45px;
+    padding: 10px;
+    background-color: #F89737;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    color: white;
+    box-shadow: 0px 4px #FF2036;
+}
+
+.ou-texto {
+    text-align: center;
+    font-size: 12px;
+    margin: 10px 0;
+    color: white;
+}
+
+.btn-criar {
+    position: relative;
+    width: 200px;
+    height: 45px;
+    padding: 10px;
+    background: linear-gradient(to right, #FF4B4B, #F12A80);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0px 4px #9F2258;
+}
+
+.tutorial-box h2 {
+    color: white;
+    margin-top: 0;
+}

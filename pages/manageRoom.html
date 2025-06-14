@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="manageRoom.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>JOGADORES 6/10</h2>
+            <select class="dropdown">
+                <option>10 JOGADORES</option>
+            </select>
+            <div class="player"><img src="#"><span class="player-name">JOGADOR 1</span><span class="icons"></span></div>
+            <div class="player"><img src="#"><span class="player-name">JOGADOR 2</span><span class="icons"></span></div>
+            <div class="player"><img src="#"><span class="player-name">JOGADOR 3</span><span class="icons"></span></div>
+            <div class="player"><img src="#"><span class="player-name">JOGADOR 4</span><span class="icons"></span></div>
+            <div class="player"><img src="#"><span class="player-name">JOGADOR 5</span><span class="icons"></span></div>
+            <div class="player"><img src="#"><span class="player-name">JOGADOR 6</span><span class="icons"></span></div>
+        </div>
+
+        <div class="main">
+            <div class="management-content">
+                <div class="header">PERGUNTA ATUAL</div>
+
+                <div class="question-box">
+                    <div class="group-green">
+                        <div class="group-green-players">
+                            <div class="player-g"><span class="player-name"><strong>JOGADOR 03</strong></span><span
+                                    class="pontos"> +45</span></div>
+                            <div class="player-g"><span class="player-name"><strong>JOGADOR 06</strong></span><span
+                                    class="pontos"> +39</span></div>
+                            <div class="player-g"><span class="player-name"><strong>JOGADOR 01</strong></span><span
+                                    class="pontos"> +32</span></div>
+                        </div>
+                    </div>
+                    <div class="group-gray">
+                        <div class="player-gr"><span class="player-name"><strong>JOGADOR 04</strong></span><span
+                                class="pontos"> +28</span></div>
+                        <div class="player-gr"><span class="player-name"><strong>JOGADOR 02</strong></span><span
+                                class="pontos"> +28</span></div>
+                    </div>
+                    <div class="group-red">
+                        <div class="player-rd"><span class="player-name"><strong>JOGADOR 05</strong></span><span
+                                class="pontos"> +23</span></div>
+                    </div>
+                </div>
+
+                <div class="answer-box">RESPOSTA CORRETA</div>
+
+                <div class="control-panel">
+                    <button class="btn-pular">Pular</button>
+                    <button class="btn-anular">Anular</button>
+                    <button class="btn-tempo">25s</button>
+                </div>
+            </div>
+            <div class="bottom-buttons">
+                <button class="btn-encerrar" onclick="window.location.href='createRoom.html'">ENCERRAR</button>
+                <button class="btn-pausar">PAUSAR</button>
+                <button class="btn-voltar" onclick="window.location.href='configRoom.html'">VOLTAR</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

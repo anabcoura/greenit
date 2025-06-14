@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar na sala</title>
+    <link rel="stylesheet" href="../pages/enterRoom.css" />
+</head>
+
+<body>
+    <div class="container">
+        <button class="btn-voltar" onclick="window.location.href='../index.html'">↩ VOLTAR</button>
+
+        <div class="content-box">
+            <div class="form-box">
+                <div class="avatar-selection">
+                    <div class="avatar-container">
+                        <button class="avatar-btn">&lt;</button>
+                        <div class="avatar-img"></div>
+                        <button class="avatar-btn">&gt;</button>
+                    </div>
+                    <div class="input-group1">
+                        <label for="nickname">Escolha um avatar e um apelido</label>
+                        <input type="text" id="nickname" placeholder="apelido" />
+                    </div>
+                </div>
+                <div class="entrar-sala">
+                    <div class="input-group2">
+                        <label for="codigo">Digite o código da sala</label>
+                        <input type="text" id="codigo" placeholder="código da sala" />
+                    </div>
+                    <button class="btn-entrar" onclick="window.location.href='room.html'">Entrar na sala</button>
+                </div>
+                <p class="ou-texto">Ou crie sua própria sala!</p>
+                <button class="btn-criar" onclick="window.location.href='createRoom.html'">Criar sala</button>
+            </div>
+
+            <div class="tutorial-box">
+                <h2>Como jogar?</h2>
+                <div class="tutorial1">
+                    <h3 class="tutoduvida">Quero entrar em uma sala criada por outra pessoa.</h3>
+                    <p class="tutoresp"> ● Basta digitar ou colar o código referente a sala, selecionar seu avatar e
+                        apelido e aproveitar!</p>
+                </div>
+                <div class="tutorial2">
+                    <h3 class="tutoduvida">Quero criar uma sala para meus alunos ou filhos.</h3>
+                    <p class="tutoresp">● Basta entrar na aba de criação de salas, selecionar um tema de sua escolha,
+                        configurar sua sala, enviar o código aos alunos e dar inicio a atividade!</p>
+                </div>
+                <div class="tutorial3">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

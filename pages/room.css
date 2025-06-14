@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #6FCC3E;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.08) 25%, rgba(0, 0, 0, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.08) 25%, rgba(0, 0, 0, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08) 76%, transparent 77%, transparent);
+    background-size: 40px 40px;
+}
+
+.sala-container {
+    padding: 40px;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.sala-box {
+    background-color: #F6F6F6;
+    border: 4px solid #2B9A66;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 10px auto;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sala-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-voltar {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bloco-verde {
+    background-color: #2dcc4b;
+    border: 2px solid #2B9A66;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sala-conteudo {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 10px;
+}
+
+.perguntas-respostas {
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    gap: 20px;
+    background-color: #E7E7E7;
+    width: 700px
+}
+
+.jogadores-box {
+  width: 220px;
+  padding: 15px;
+  background-color: #E7E7E7;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.jogadores-titulo {
+  font-size: 12px;
+  color: #4B4B4B;
+  margin-bottom: 10px;
+}
+
+.jogador {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Indicador do jogador ativo */
+.jogador.ativo .avatar::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: limegreen;
+  border: 2px solid white;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+}
+
+.nome {
+  flex-grow: 1;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.pontos {
+  font-size: 13px;
+  color: #29b661;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+
+.bola {
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.pontos {
+    font-size: 12px;
+    color: #4CAF50;
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+.pergunta-box {
+    width: 700px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.respostas-box {
+    display: grid;
+    width: 700px;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.resposta {
+  width: 100%;
+  min-height: 50px; /* Garante altura decente */
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+.rosa {
+    background-color: #ec4a9b;
+}
+
+.vermelho {
+    background-color: #e73b3b;
+}
+
+.azul {
+    background-color: #397ff7;
+}
+
+.amarelo {
+    background-color: #f4aa1c;
+}
