@@ -28,4 +28,8 @@ socket.on("jogadoresAtualizados", (jogadores) => {
     li.innerHTML = `<img src="${j.avatar}" width="30" style="border-radius:50%;"> ${j.apelido}`;
     ul.appendChild(li);
   });
+
+  socket.on("quizIniciado", () => {
+    window.location.href = "/quiz.html";
+  });
 });
