@@ -2,6 +2,7 @@ const socket = io();
 let codigoSala = null;
 let adminId = localStorage.getItem("adminId");
 
+// Gera ID do administrador caso não exista
 if (!adminId) {
   adminId = crypto.randomUUID();
   localStorage.setItem("adminId", adminId);
@@ -13,6 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnPular = document.getElementById("pular");
   const configuracaoSala = document.getElementById("configuracaoSala");
   const painelAdmin = document.getElementById("painelAdmin");
+  const btnFinalizar = document.getElementById("finalizarPartida");
+
+  // Desativa o botão de início até que a sala seja criada
+  btnIniciar.disabled = true;
 
   btnCriar.addEventListener("click", (e) => {
     e.preventDefault();
@@ -30,9 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   btnIniciar.addEventListener("click", () => {
-    if (codigoSala) {
-      socket.emit("iniciarQuiz", codigoSala);
+    if (!codigoSala) {
+      console.warn("Código da sala ainda não foi definido.");
+      return;
     }
+
+    socket.emit("iniciarQuiz", codigoSala);
   });
 
   btnPular.addEventListener("click", () => {
@@ -41,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.getElementById("finalizarPartida").addEventListener("click", () => {
+  btnFinalizar.addEventListener("click", () => {
     if (!codigoSala) return;
 
     const confirmar = confirm("Tem certeza que deseja finalizar a partida?");
@@ -56,13 +64,12 @@ socket.on("salaCriada", ({ codigo }) => {
   localStorage.setItem("codigoSalaAdmin", codigoSala);
 
   document.getElementById("codigoSala").textContent = `Código da sala: ${codigoSala}`;
+  document.getElementById("configuracaoSala").style.display = "none";
+  document.getElementById("painelAdmin").style.display = "block";
 
-  const configuracaoSala = document.getElementById("configuracaoSala");
-  const painelAdmin = document.getElementById("painelAdmin");
-  if (configuracaoSala) configuracaoSala.style.display = "none";
-  if (painelAdmin) painelAdmin.style.display = "block";
-
-  document.getElementById("pular").style.display = "none"; // Só mostra ao iniciar o quiz
+  // Agora sim, podemos liberar o botão de iniciar
+  document.getElementById("iniciar").disabled = false;
+  document.getElementById("pular").style.display = "none";
 });
 
 socket.on("jogadoresAtualizados", (jogadores) => {
@@ -75,6 +82,16 @@ socket.on("jogadoresAtualizados", (jogadores) => {
     ul.appendChild(li);
   });
 
+  const ulGerenciar = document.getElementById("listaGerenciarJogadores");
+  ulGerenciar.innerHTML = "";
+
+  jogadores.forEach((j) => {
+    const li = document.createElement("li");
+    li.innerHTML = `${j.apelido} 
+      <button onclick="expulsar('${j.playerId}')">Expulsar</button>`;
+    ulGerenciar.appendChild(li);
+  });
+
   document.getElementById("iniciar").disabled = jogadores.length < 2;
 });
 
@@ -82,14 +99,12 @@ socket.on("pontuacaoAtualizada", ({ pontuacao, jogadores }) => {
   const ul = document.getElementById("listaGerenciarJogadores");
   ul.innerHTML = "";
 
-  jogadores
-    .filter(j => !j.isAdmin)
-    .forEach(j => {
-      const li = document.createElement("li");
-      li.innerHTML = `${j.apelido} - ${pontuacao[j.playerId] || 0} pts 
-        <button onclick="expulsar('${j.playerId}')">Expulsar</button>`;
-      ul.appendChild(li);
-    });
+  jogadores.forEach(j => {
+    const li = document.createElement("li");
+    li.innerHTML = `${j.apelido} - ${pontuacao[j.playerId] || 0} pts 
+      <button onclick="expulsar('${j.playerId}')">Expulsar</button>`;
+    ul.appendChild(li);
+  });
 });
 
 socket.on("novaPergunta", () => {
